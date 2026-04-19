@@ -26,10 +26,12 @@ app.post("/ask", async (req, res) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:5173",
-          "X-Title": "My AI App",
+          headers: {
+  "Content-Type": "application/json",
+  "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+  "HTTP-Referer": "https://your-app.vercel.app",
+  "X-Title": "My AI App"
+}
         },
       }
     );
