@@ -61,7 +61,7 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/ask", {
+      const res = await axios.post("/api/ask", {
         message: input,
       });
 
