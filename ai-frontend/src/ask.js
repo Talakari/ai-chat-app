@@ -1,7 +1,7 @@
 export async function sendMessage(message) {
   try {
     const response = await fetch(
-      "https://ai-chat-app-1-h8x8.onrender.com/ask",
+      "https://ai-chat-app-1-h8x8.onrender.com/api/ask",
       {
         method: "POST",
         headers: {
