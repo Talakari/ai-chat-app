@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { sendMessage } from "./ask";
+import { auth } from "./firebase";
+import { signOut } from "firebase/auth";
+
 
 function App() {
   const [input, setInput] = useState("");
@@ -71,9 +74,27 @@ function App() {
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4">
 
       {/* Heading */}
-      <h1 className="text-5xl font-bold mb-10 bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
-        AI Chat App
-      </h1>
+      {/* Heading */}
+<div className="flex justify-between items-center w-full max-w-3xl mb-6">
+
+  <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
+    AI Chat App
+  </h1>
+
+  <div className="flex items-center gap-4">
+    <span className="text-gray-300 font-medium">
+      {auth.currentUser?.email}
+    </span>
+
+    <button
+      onClick={() => signOut(auth)}
+      className="px-5 py-2 rounded-xl font-semibold text-white bg-gradient-to-r from-cyan-500 to-purple-500 hover:scale-105 transition"
+    >
+      Logout
+    </button>
+  </div>
+
+</div>
 
       {/* Chat Container */}
       <div className="w-full max-w-3xl bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl">
